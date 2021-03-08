@@ -13,8 +13,8 @@
 ## Even or Odd
 
 You will be given a table, `numbers`, with one column `number`. Return a table with a column `is_even` containing "Even" or "Odd" depending on `number` column values.  
-numbers table schema: number INT  
-output table schema: is_even STRING
+_numbers table schema_: number INT  
+_output table schema_: is_even STRING
 
 <details><summary>Solution</summary>
 
