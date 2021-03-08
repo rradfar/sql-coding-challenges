@@ -4,9 +4,10 @@
 
 ## Challenges
 
-|  Kyu  | Questions                   | Easy  | Medium | Hard  |
-| :---: | :-------------------------- | :---: | :----: | :---: |
-|   8   | [Even or Odd](#even-or-odd) |   ⭐   |        |       |
+|  Kyu  | Questions                           | Easy  | Medium | Hard  |
+| :---: | :---------------------------------- | :---: | :----: | :---: |
+|   8   | [Even or Odd](#even-or-odd)         |   ⭐   |        |       |
+|   8   | [Opposite Number](#opposite-number) |   ⭐   |        |       |
 
 ---
 
@@ -26,6 +27,29 @@ SELECT
   END
 AS is_even
 FROM numbers;
+```
+</details>
+
+---
+
+**[⬆ Back to Top](#challenges)**
+
+## Opposite Number
+
+You are given a table `opposite`, with a column `number`. Return a table with a column `res`.
+
+Examples:
+
+```markdown
+1: -1
+14: -14
+-34: 34
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT -number AS res FROM opposite;
 ```
 </details>
 
