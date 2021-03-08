@@ -1,4 +1,4 @@
-![SQL](images/sql-logo.png)
+![SQL](images/sql-logo.jpg)
 
 # [Codewars](https://www.codewars.com/) SQL Solutions
 
