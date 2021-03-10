@@ -7,6 +7,7 @@
 |  Kyu  | Questions                                 |
 | :---: | :---------------------------------------- |
 |   8   | [Even or Odd](#even-or-odd)               |
+|   8   | [Keep Hydrated](#keep-hydrated)               |
 |   8   | [Opposite Number](#opposite-number)       |
 |   7   | [Sum of Odd Numbers](#sum-of-odd-numbers) |
 
@@ -28,6 +29,31 @@ SELECT
   END
 AS is_even
 FROM numbers;
+```
+</details>
+
+---
+
+**[⬆ Back to Top](#challenges)**
+
+## Keep Hydrated!
+
+Nathan loves cycling. Because Nathan knows it is important to stay hydrated, he drinks 0.5 liters of water per hour of cycling. You get given the time in hours and you need to return the number of liters Nathan will drink, rounded to the smallest value.
+
+Examples:
+
+```markdown
+time = 3:     liters = 1
+time = 6.7:   liters = 3
+time = 11.8:  liters = 5
+```
+
+Given the table `cycling` which contains columns `id` and `hours`, you have to return 3 columns: `id`, `hours` and `liters`.
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT *, FLOOR(hours / 2) AS liters FROM cycling;
 ```
 </details>
 
