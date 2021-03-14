@@ -8,6 +8,7 @@
 | :---: | :---------------------------------------- |
 |   8   | [Century From Year](#century-from-year)               |
 |   8   | [Even or Odd](#even-or-odd)               |
+|   8   | [Is n Divisible by x and y?](#is-n-divisible-by-x-and-y)               |
 |   8   | [Keep Hydrated](#keep-hydrated)               |
 |   8   | [Opposite Number](#opposite-number)       |
 |   7   | [Sum of Odd Numbers](#sum-of-odd-numbers) |
@@ -42,7 +43,7 @@ SELECT CEILING(yr/100.00) AS century FROM years;
 
 ## Even or Odd
 
-You will be given a table, `numbers`, with one column `number`. Return a table with a column `is_even` containing "Even" or "Odd" depending on `number` column values.
+You will be given a table `numbers` with one column `number`. Return a table with a column `is_even` containing "Even" or "Odd" depending on `number` column values.
 
 Examples:
 
@@ -63,6 +64,30 @@ SELECT
   END
 AS is_even
 FROM numbers;
+```
+</details>
+
+---
+
+**[⬆ Back to Top](#challenges)**
+
+## Is n Divisible by x and y?
+
+You will be given a table `kata` with columns `n`, `x`, and `y`. Your task is to check if `n` is divisible by the two numbers `x` and `y`. Return the `id` and your result in a column named `res`. All inputs are positive, non-zero digits.
+
+Examples:
+
+```
+n = 3, x = 1, y = 3 -> res = true (because 3 is divisible by 1 and 3)
+n = 12, x = 2, y = 6 -> res = true (because 12 is divisible by 2 and 6)
+n = 100, x = 5, y = 3 -> res = false (because 100 is not divisible by 3)
+n = 12, x = 7, y = 5 -> res = false (because 12 is neither divisible by 7 nor 5)
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT id, n % x = 0 AND n % y = 0 AS res FROM kata;
 ```
 </details>
 
