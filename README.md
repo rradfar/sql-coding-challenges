@@ -6,6 +6,7 @@
 
 |  Kyu  | Questions                                 |
 | :---: | :---------------------------------------- |
+|   8   | [Beginner Series #2 Clock](#beginner-series-2-clock)               |
 |   8   | [Century From Year](#century-from-year)               |
 |   8   | [Even or Odd](#even-or-odd)               |
 |   8   | [Is n Divisible by x and y?](#is-n-divisible-by-x-and-y)               |
@@ -14,6 +15,29 @@
 |   7   | [Sum of Odd Numbers](#sum-of-odd-numbers) |
 
 ---
+
+## Beginner Series #2 Clock
+
+The clock shows h hours (0 <= h <= 23), m minutes (0 <= m <= 59) and s seconds (0 <= s <= 59) after midnight. Given table `past` with columns `h`, `m`, and `s`, your task is to return column `res` which represents the time since midnight in milliseconds.
+
+Examples:
+
+```
+h = 0, m = 0, s = 0 -> res = 0
+h = 0, m = 1, s = 1 -> res = 61000
+h = 1, m = 0, s = 1 -> res = 3601000
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT ((h * 60 * 60) + (m * 60) + s) * 1000 AS res FROM past;
+```
+</details>
+
+---
+
+**[⬆ Back to Top](#challenges)**
 
 ## Century From Year
 
