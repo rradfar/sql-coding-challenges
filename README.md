@@ -12,6 +12,7 @@
 |   8   | [Is n Divisible by x and y?](#is-n-divisible-by-x-and-y)               |
 |   8   | [Keep Hydrated](#keep-hydrated)               |
 |   8   | [Opposite Number](#opposite-number)       |
+|   8   | [Returning Strings](#returning-strings)       |
 |   7   | [Sum of Odd Numbers](#sum-of-odd-numbers) |
 
 ---
@@ -160,6 +161,27 @@ number = -34 -> res = 34
 
 ```sql
 SELECT -number AS res FROM opposite;
+```
+</details>
+
+---
+
+**[⬆ Back to Top](#challenges)**
+
+## Returning Strings
+
+You are given a table `person` with a column `name`. Return a table with a column `greeting` that contains `Hello, <name> how are you doing today?`.
+
+Example:
+
+```
+name = "John" -> greeting = "Hello, John how are you doing today?"
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT 'Hello, ' || name || ' how are you doing today?' AS greeting FROM person;
 ```
 </details>
 
