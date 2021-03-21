@@ -27,6 +27,7 @@ SELECT -number
 AS res
 FROM opposite;
 ```
+
 </details>
 
 ---
@@ -58,6 +59,29 @@ SELECT ((h * 60 * 60) + (m * 60) + s) * 1000
 AS res
 FROM past;
 ```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## Simple Group By
+
+Given the table `people` which contains a list of people and their ages, your task is to group all the people by their age and count the people who have the same age.
+
+```sql
+SELECT /* your query given id, name, age */
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT age, COUNT(*) AS people_count
+FROM people
+GROUP BY age;
+```
+
 </details>
 
 ---
@@ -90,6 +114,7 @@ SELECT CEILING(yr/100.00)
 AS century
 FROM years;
 ```
+
 </details>
 
 ---
@@ -126,6 +151,7 @@ SELECT
 AS is_even
 FROM numbers;
 ```
+
 </details>
 
 ---
@@ -160,6 +186,7 @@ SELECT GREATEST(a * b * c, a + b + c, a * (b + c), (a + b) * c)
 AS res
 FROM expression_matter;
 ```
+
 </details>
 
 ---
@@ -192,6 +219,7 @@ SELECT id, n % x = 0 AND n % y = 0
 AS res
 FROM kata;
 ```
+
 </details>
 
 ---
@@ -225,6 +253,7 @@ SELECT *, FLOOR(hours / 2)
 AS liters
 FROM cycling;
 ```
+
 </details>
 
 ---
@@ -254,6 +283,7 @@ SELECT 'Hello, ' || name || ' how are you doing today?'
 AS greeting
 FROM person;
 ```
+
 </details>
 
 ---
@@ -296,6 +326,7 @@ SELECT n * n * n
 AS res
 FROM nums;
 ```
+
 </details>
 
 ---
@@ -330,6 +361,7 @@ SELECT bound - (bound % divisor)
 AS res
 FROM max_multiple;
 ```
+
 </details>
 
 ---
