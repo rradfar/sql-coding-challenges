@@ -1,24 +1,39 @@
 ![SQL](images/sql-logo.png)
 
-# [Codewars](https://www.codewars.com/) SQL Solutions
+# SQL Coding Challenges for Beginners
 
-## Challenges
+## Opposite Number
 
-|  Kyu  | Questions                                 |
-| :---: | :---------------------------------------- |
-|   8   | [Beginner Series #2 Clock](#beginner-series-2-clock)               |
-|   8   | [Century From Year](#century-from-year)               |
-|   8   | [Even or Odd](#even-or-odd)               |
-|   8   | [Expressions Matter](#expressions-matter)               |
-|   8   | [Is n Divisible by x and y?](#is-n-divisible-by-x-and-y)               |
-|   8   | [Keep Hydrated](#keep-hydrated)               |
-|   8   | [Opposite Number](#opposite-number)       |
-|   8   | [Returning Strings](#returning-strings)       |
-|   7   | [Sum of Odd Numbers](#sum-of-odd-numbers) |
+Your task is to return the opposite of a given number.
+
+Examples:
+
+```
+number = 1 -> res = -1
+number = 14 -> res = -14
+number = -34 -> res = 34
+```
+
+```sql
+SELECT /* your query given number */
+AS res
+FROM opposite;
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT -number
+AS res
+FROM opposite;
+```
+</details>
 
 ---
 
-## Beginner Series #2 Clock
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## Clock
 
 The clock shows `h` hours (`0 <= h <= 23`), `m` minutes (`0 <= m <= 59`) and `s` seconds (`**0 <= s <= 59**`) after midnight. Your task is to return the time since midnight in milliseconds.
 
@@ -47,7 +62,7 @@ FROM past;
 
 ---
 
-**[⬆ Back to Top](#challenges)**
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
 ## Century From Year
 
@@ -79,7 +94,7 @@ FROM years;
 
 ---
 
-**[⬆ Back to Top](#challenges)**
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
 ## Even or Odd
 
@@ -115,7 +130,7 @@ FROM numbers;
 
 ---
 
-**[⬆ Back to Top](#challenges)**
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
 ## Expressions Matter
 
@@ -149,7 +164,7 @@ FROM expression_matter;
 
 ---
 
-**[⬆ Back to Top](#challenges)**
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
 ## Is n Divisible by x and y?
 
@@ -181,7 +196,7 @@ FROM kata;
 
 ---
 
-**[⬆ Back to Top](#challenges)**
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
 ## Keep Hydrated!
 
@@ -214,38 +229,7 @@ FROM cycling;
 
 ---
 
-**[⬆ Back to Top](#challenges)**
-
-## Opposite Number
-
-Your task is to return the opposite of a given number.
-
-Examples:
-
-```
-number = 1 -> res = -1
-number = 14 -> res = -14
-number = -34 -> res = 34
-```
-
-```sql
-SELECT /* your query given number */
-AS res
-FROM opposite;
-```
-
-<details><summary>Solution</summary>
-
-```sql
-SELECT -number
-AS res
-FROM opposite;
-```
-</details>
-
----
-
-**[⬆ Back to Top](#challenges)**
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
 ## Returning Strings
 
@@ -274,7 +258,7 @@ FROM person;
 
 ---
 
-**[⬆ Back to Top](#challenges)**
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
 ## Sum of odd numbers
 
@@ -316,4 +300,38 @@ FROM nums;
 
 ---
 
-**[⬆ Back to Top](#challenges)**
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## Maximum Multiple
+
+Given a divisor and a bound, find the largest integer `N` where `0 < N <= bound`, such that N is divisible by the divisor. Can you solve this challenge without using a loop?
+
+Examples:
+
+```
+divisor = 2, bound = 7 -> N = 6
+divisor = 3, bound = 10 -> N = 9
+divisor = 7, bound = 17 -> N = 14
+divisor = 7, bound = 100 -> N = 98
+divisor = 10, bound = 50 -> N = 50
+divisor = 37, bound = 200 -> N = 185
+```
+
+```sql
+SELECT /* your query given divisor & bound */
+AS res
+FROM max_multiple;
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT bound - (bound % divisor)
+AS res
+FROM max_multiple;
+```
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
