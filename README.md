@@ -34,6 +34,37 @@ FROM opposite;
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
+## Sum of Angles
+
+Find the total sum of interior angles (in degrees) in an n-sided simple polygon. The formula for calculating the sum of interior angles of a polygon with `n` sides where `n > 2` is `(n − 2) × 180°`.
+
+Examples:
+
+```
+n = 3 -> res = 180
+n = 4 -> res = 360
+```
+
+```sql
+SELECT /* your query given n */
+AS res
+FROM angle;
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT (n - 2) * 180
+AS res
+FROM angle;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
 ## Clock
 
 The clock shows `h` hours (`0 <= h <= 23`), `m` minutes (`0 <= m <= 59`) and `s` seconds (`**0 <= s <= 59**`) after midnight. Your task is to return the time since midnight in milliseconds.
