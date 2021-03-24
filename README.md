@@ -404,13 +404,36 @@ FROM max_multiple;
 You work at a book store. It's the end of the month, and you need to find out the top 5 bestselling books at your store. Use a select statement to list names, authors, and number of copies sold of the 5 books which were sold the most.
 
 ```sql
-/* your query given name, author, copies_sold in the books table */
+/* your query given columns name, author, copies_sold in the books table */
 ```
 
 <details><summary>Solution</summary>
 
 ```sql
 SELECT * FROM books ORDER BY copies_sold DESC LIMIT 5;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## On the Canadian Border
+
+You are a border guard sitting on the Canadian border. You were given a list of travelers who have arrived at your gate today. You know that American, Mexican, and Canadian citizens don't need visas, so they can just continue their trips. You don't need to check their passports for visas! You only need to check the passports of citizens of all other countries!
+
+Select names, and countries of origin of all the travelers, excluding anyone from `Canada`, `Mexico`, or `USA`.
+
+```sql
+/* your query given columns name & country in the travelers table */
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT * FROM travelers
+WHERE country NOT IN ('Canada', 'Mexico', 'USA');
 ```
 
 </details>
