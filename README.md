@@ -441,3 +441,25 @@ WHERE country NOT IN ('Canada', 'Mexico', 'USA');
 ---
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## Simple JOIN
+
+For this challenge you need to return all columns from the `products` table, and join to the `companies` table so that you can retrieve the company name. Return all product fields as well as the company name as `company_name`.
+
+```sql
+/* your query given id, name, isbn, company_id, price from the products table and id, name from the companies table */
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT products.*, companies.name AS company_name
+FROM products JOIN companies
+ON products.company_id = companies.id;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
