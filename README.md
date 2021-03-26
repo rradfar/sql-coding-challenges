@@ -463,3 +463,24 @@ ON products.company_id = companies.id;
 ---
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## Simple DISTINCT
+
+For this challenge you need to find all the unique ages in the `people` table.
+
+```sql
+/* your query given id, name, age from the people table */
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT DISTINCT age
+FROM people;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
