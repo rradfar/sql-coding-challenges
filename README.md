@@ -466,7 +466,7 @@ ON products.company_id = companies.id;
 
 ## Simple DISTINCT
 
-For this challenge you need to find all the unique ages in the `people` table.
+For this challenge you need to find all the unique ages from the `people` table.
 
 ```sql
 /* your query given id, name, age from the people table */
@@ -476,6 +476,27 @@ For this challenge you need to find all the unique ages in the `people` table.
 
 ```sql
 SELECT DISTINCT age
+FROM people;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## Simple SUM
+
+For this challenge you need to find the sum of all the ages from the `people` table. Return your result as `age_sum`.
+
+```sql
+/* your query given id, name, age from the people table */
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT SUM (age) AS age_sum
 FROM people;
 ```
 
