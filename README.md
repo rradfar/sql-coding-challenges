@@ -505,3 +505,23 @@ FROM people;
 ---
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## Collect Tuition
+
+You are working for a local school, and you are responsible for collecting tuition from students. You have a list of all students, some of them have already paid tuition and some haven't. Write a select statement to get a list of all students who haven't paid their tuition yet. The list should include all the data available about these students.
+
+```sql
+/* your query given name, age, semester, mentor, tuition_received (boolean) from the students table */
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT * FROM students WHERE tuition_received IS false;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
