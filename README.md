@@ -525,3 +525,26 @@ SELECT * FROM students WHERE tuition_received IS false;
 ---
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## Simple HAVING
+
+For this challenge you need to count how many people have the same age and return the groups with 10 or more people who have that age. Return the `age` and your count as `total_people`.
+
+```sql
+/* your query given id, name, age from the people table */
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT age, count(*) AS total_people
+FROM people
+GROUP BY age
+HAVING count(id) >= 10;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
