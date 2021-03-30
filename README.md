@@ -548,3 +548,24 @@ HAVING count(id) >= 10;
 ---
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## Simple MIN / MAX
+
+For this challenge you need to return the minimum and maximum ages (`age_min` and `age_max`) out of all the people.
+
+```sql
+/* your query given id, name, age from the people table */
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT MIN(age) AS age_min, MAX(age) AS age_max
+FROM people;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
