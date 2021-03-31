@@ -101,8 +101,12 @@ FROM past;
 
 Given the table `people` which contains a list of people and their ages, your task is to group all the people by their age and count the people who have the same age.
 
-```sql
-SELECT /* your query given id, name, age */
+```
+people
+------
+id
+name
+age
 ```
 
 <details><summary>Solution</summary>
@@ -403,8 +407,12 @@ FROM max_multiple;
 
 You work at a book store. It's the end of the month, and you need to find out the top 5 bestselling books at your store. Use a select statement to list names, authors, and number of copies sold of the 5 books which were sold the most.
 
-```sql
-/* your query given columns name, author, copies_sold in the books table */
+```
+books
+-----
+name
+author
+copies_sold
 ```
 
 <details><summary>Solution</summary>
@@ -425,8 +433,11 @@ You are a border guard sitting on the Canadian border. You were given a list of 
 
 Select names, and countries of origin of all the travelers, excluding anyone from `Canada`, `Mexico`, or `USA`.
 
-```sql
-/* your query given columns name & country in the travelers table */
+```
+travelers
+---------
+name
+country
 ```
 
 <details><summary>Solution</summary>
@@ -446,8 +457,14 @@ WHERE country NOT IN ('Canada', 'Mexico', 'USA');
 
 For this challenge you need to return all columns from the `products` table, and join to the `companies` table so that you can retrieve the company name. Return all product fields as well as the company name as `company_name`.
 
-```sql
-/* your query given id, name, isbn, company_id, price from the products table and id, name from the companies table */
+```
+products        companies
+--------        ---------
+id              id
+name            name
+isbn
+company_id
+price
 ```
 
 <details><summary>Solution</summary>
@@ -468,8 +485,12 @@ ON products.company_id = companies.id;
 
 For this challenge you need to find all the unique ages from the `people` table.
 
-```sql
-/* your query given id, name, age from the people table */
+```
+people
+------
+id
+name
+age
 ```
 
 <details><summary>Solution</summary>
@@ -489,8 +510,12 @@ FROM people;
 
 For this challenge you need to find the sum of all the ages from the `people` table. Return your result as `age_sum`.
 
-```sql
-/* your query given id, name, age from the people table */
+```
+people
+------
+id
+name
+age
 ```
 
 <details><summary>Solution</summary>
@@ -510,8 +535,14 @@ FROM people;
 
 You are working for a local school, and you are responsible for collecting tuition from students. You have a list of all students, some of them have already paid tuition and some haven't. Write a select statement to get a list of all students who haven't paid their tuition yet. The list should include all the data available about these students.
 
-```sql
-/* your query given name, age, semester, mentor, tuition_received (boolean) from the students table */
+```
+students
+--------
+name
+age
+semester
+mentor
+tuition_received (boolean)
 ```
 
 <details><summary>Solution</summary>
@@ -530,8 +561,12 @@ SELECT * FROM students WHERE tuition_received IS false;
 
 For this challenge you need to count how many people have the same age and return the groups with 10 or more people who have that age. Return the `age` and your count as `total_people`.
 
-```sql
-/* your query given id, name, age from the people table */
+```
+people
+------
+id
+name
+age
 ```
 
 <details><summary>Solution</summary>
@@ -553,8 +588,12 @@ HAVING count(id) >= 10;
 
 For this challenge you need to return the minimum and maximum ages (`age_min` and `age_max`) out of all the people.
 
-```sql
-/* your query given id, name, age from the people table */
+```
+people
+------
+id
+name
+age
 ```
 
 <details><summary>Solution</summary>
@@ -562,6 +601,33 @@ For this challenge you need to return the minimum and maximum ages (`age_min` an
 ```sql
 SELECT MIN(age) AS age_min, MAX(age) AS age_max
 FROM people;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## Simple JOIN with COUNT
+
+For this challenge you need to join the people table and the toys table and return all people fields as well as the count of toys for each person as `toy_count`.
+
+```
+people        toys
+------        ----
+id            id
+name          name
+              people_id
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT people.*, COUNT(*) as toy_count
+FROM people JOIN toys
+ON people.id = toys.people_id
+GROUP BY people.id;
 ```
 
 </details>
