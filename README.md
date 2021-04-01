@@ -635,3 +635,28 @@ GROUP BY people.id;
 ---
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## Register for the Party
+
+You received an invitation to an amazing party. Now you need to write an insert statement to add yourself to the table of participants.
+
+```
+participants
+------------
+name (string)
+age (integer)
+attending (boolean)
+```
+
+<details><summary>Solution</summary>
+
+```sql
+INSERT INTO participants (name, age, attending)
+VALUES ('John Doe', 35, true);
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
