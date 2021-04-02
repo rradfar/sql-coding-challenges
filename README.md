@@ -660,3 +660,28 @@ VALUES ('John Doe', 35, true);
 ---
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## Ordering
+
+Your task is to sort the information in the table `companies` by the number of employees (high to low).
+
+```
+companies
+---------
+id
+ceo
+motto
+employees
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT * FROM companies ORDER BY employees DESC;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
