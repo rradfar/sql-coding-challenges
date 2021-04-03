@@ -418,7 +418,10 @@ copies_sold
 <details><summary>Solution</summary>
 
 ```sql
-SELECT * FROM books ORDER BY copies_sold DESC LIMIT 5;
+SELECT *
+FROM books
+ORDER BY copies_sold DESC
+LIMIT 5;
 ```
 
 </details>
@@ -443,7 +446,8 @@ country
 <details><summary>Solution</summary>
 
 ```sql
-SELECT * FROM travelers
+SELECT *
+FROM travelers
 WHERE country NOT IN ('Canada', 'Mexico', 'USA');
 ```
 
@@ -548,7 +552,9 @@ tuition_received (boolean)
 <details><summary>Solution</summary>
 
 ```sql
-SELECT * FROM students WHERE tuition_received IS false;
+SELECT *
+FROM students
+WHERE tuition_received IS false;
 ```
 
 </details>
@@ -677,7 +683,37 @@ employees
 <details><summary>Solution</summary>
 
 ```sql
-SELECT * FROM companies ORDER BY employees DESC;
+SELECT *
+FROM companies
+ORDER BY employees DESC;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## Counting and Grouping
+
+Given a demographics table, your task is to return a table that shows a count of each race represented in descending order.
+
+```
+demographics
+------------
+id
+name
+birthday
+race
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT race, COUNT(*) AS count
+FROM demographics
+GROUP BY race
+ORDER BY count DESC;
 ```
 
 </details>
