@@ -195,7 +195,7 @@ FROM numbers;
 
 ## Expressions Matter
 
-Given three integers `a`, `b`, `c` where `1  ≤  a,  b,  c  ≤  10`, return the largest number obtained after inserting the following operators and brackets in any order: `+`, `*`, `()`. You can use the same operator more than once and it is not necessary to use all the operators and brackets. However, you must use `a`, `b`, and `c` only once, and you may _not_ swap their order.
+Given three integers `a`, `b`, `c` where `1  ≤  a,  b,  c  ≤  10`, return the largest number obtained after inserting the following operators and brackets in any order: `+`, `*`, `()`. You can use the same operator more than once, and it is not necessary to use all the operators and brackets. However, you must use `a`, `b`, and `c` only once, and you may _not_ swap their order.
 
 Example:
 
@@ -263,7 +263,8 @@ FROM kata;
 
 ## Keep Hydrated!
 
-Nathan loves cycling. Because Nathan knows it is important to stay hydrated, he drinks 0.5 liters of water per hour of cycling. You are given the time in hours and you need to return the number of liters Nathan will drink, rounded to the smallest value.
+Nathan loves cycling. Because Nathan knows it is important to stay hydrated, 
+he drinks 0.5 liters of water per hour of cycling. You are given the time in hours, and you need to return the number of liters Nathan will drink, rounded to the smallest value.
 
 Examples:
 
@@ -537,7 +538,7 @@ FROM people;
 
 ## Collect Tuition
 
-You are working for a local school, and you are responsible for collecting tuition from students. You have a list of all students, some of them have already paid tuition and some haven't. Write a select statement to get a list of all students who haven't paid their tuition yet. The list should include all the data available about these students.
+You are working for a local school, and you are responsible for collecting tuition from students. You have a list of all students, some of them have already paid tuition, and some haven't. Write a select statement to get a list of all students who haven't paid their tuition yet. The list should include all the data available about these students.
 
 ```
 students
@@ -714,6 +715,38 @@ SELECT race, COUNT(*) AS count
 FROM demographics
 GROUP BY race
 ORDER BY count DESC;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## Alphabetical Addition
+
+Given a table `letters`, with a string column `letter`, return the sum of the 
+letters in that column. Letters will always be lowercase. Letters can 
+overflow (see second to last example of the description)
+If no letters are given, the function should return `z`.
+
+```
+"a", "b" -> "c" -- Because a = 1, b = 2, and 1 + 2 = 3 which corresponds to the letter c
+"a", "b", "c" -> "f"
+"z", "a" -> "a"
+"y", "c", "b" -> "d" -- notice the letters overflowing
+"z" -> "z"
+"" -> "z"
+```
+
+<details><summary>Solution</summary>
+
+```sql
+-- Note: CHR(97) -> "a"
+-- Note: ASCII("a") -> 97
+
+SELECT COALESCE(CHR(MOD(SUM(ASCII(letter) - 96) - 1, 26)::INT + 97),'z') AS letter
+FROM letters;
 ```
 
 </details>
