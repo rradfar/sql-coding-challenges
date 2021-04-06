@@ -754,3 +754,34 @@ FROM letters;
 ---
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## Simple IN
+
+For this challenge, use the `IN` operator to check whether a department has had a sale with a price over 98 dollars.
+
+```
+departments       sales             result
+-----------       -----             ------
+id                id                id
+name              department_id     name
+                  name
+                  price
+                  card_name
+                  card_number
+                  transaction_date
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT *
+FROM departments
+WHERE id IN
+  (SELECT department_id FROM sales WHERE price > 98);
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
