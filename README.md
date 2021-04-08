@@ -785,3 +785,35 @@ WHERE id IN
 ---
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## Simple EXISTS
+
+For this challenge, use the `EXISTS` operator to check whether a department has 
+had a sale with a price over 98 dollars.
+
+```
+departments       sales             result
+-----------       -----             ------
+id                id                id
+name              department_id     name
+                  name
+                  price
+                  card_name
+                  card_number
+                  transaction_date
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT *
+FROM departments
+WHERE EXISTS
+  (SELECT 1 FROM sales WHERE department_id = departments.id AND price > 98); 
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
