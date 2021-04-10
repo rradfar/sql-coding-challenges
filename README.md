@@ -2,7 +2,7 @@
 
 # SQL Coding Challenges for Beginners
 
-## Opposite Number
+## 1. Opposite Number
 
 Your task is to return the opposite of a given number.
 
@@ -34,7 +34,7 @@ FROM opposite;
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## Sum of Angles
+## 2. Sum of Angles
 
 Find the total sum of interior angles (in degrees) in an n-sided simple polygon. The formula for calculating the sum of interior angles of a polygon with `n` sides where `n > 2` is `(n − 2) × 180°`.
 
@@ -65,7 +65,7 @@ FROM angle;
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## Clock
+## 3. Clock
 
 The clock shows `h` hours (`0 <= h <= 23`), `m` minutes (`0 <= m <= 59`) and `s` seconds (`**0 <= s <= 59**`) after midnight. Your task is to return the time since midnight in milliseconds.
 
@@ -97,7 +97,7 @@ FROM past;
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## Simple Group By
+## 4. Simple Group By
 
 Given the table `people` which contains a list of people and their ages, your task is to group all the people by their age and count the people who have the same age.
 
@@ -123,7 +123,7 @@ GROUP BY age;
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## Century From Year
+## 5. Century From Year
 
 The first century spans from the year 1 up to and including the year 100, The second - from the year 101 up to and including the year 200, etc. Your task is to return the century that a given year is in.
 
@@ -156,7 +156,7 @@ FROM years;
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## Even or Odd
+## 6. Even or Odd
 
 Given a number, return whether the number is even or odd.
 
@@ -193,7 +193,7 @@ FROM numbers;
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## Expressions Matter
+## 7. Expressions Matter
 
 Given three integers `a`, `b`, `c` where `1  ≤  a,  b,  c  ≤  10`, return the largest number obtained after inserting the following operators and brackets in any order: `+`, `*`, `()`. You can use the same operator more than once, and it is not necessary to use all the operators and brackets. However, you must use `a`, `b`, and `c` only once, and you may _not_ swap their order.
 
@@ -228,7 +228,7 @@ FROM expression_matter;
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## Is n Divisible by x and y?
+## 8. Is n Divisible by x and y?
 
 You will be given a table with columns `n`, `x`, and `y`. Your task is to check if `n` is divisible by the two numbers `x` and `y`. All inputs are positive, non-zero digits.
 
@@ -261,7 +261,7 @@ FROM kata;
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## Keep Hydrated!
+## 9. Keep Hydrated!
 
 Nathan loves cycling. Because Nathan knows it is important to stay hydrated, 
 he drinks 0.5 liters of water per hour of cycling. You are given the time in hours, and you need to return the number of liters Nathan will drink, rounded to the smallest value.
@@ -296,7 +296,7 @@ FROM cycling;
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## Returning Strings
+## 10. Returning Strings
 
 You are given a table `person` with a column `name`. Return a table with a column `greeting` that contains `Hello, <name> how are you doing today?`.
 
@@ -326,7 +326,7 @@ FROM person;
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## Sum of odd numbers
+## 11. Sum of odd numbers
 
 Given the triangle of consecutive odd numbers:
 
@@ -369,7 +369,7 @@ FROM nums;
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## Maximum Multiple
+## 12. Maximum Multiple
 
 Given a divisor and a bound, find the largest integer `N` where `0 < N <= bound`, such that N is divisible by the divisor. Can you solve this challenge without using a loop?
 
@@ -404,7 +404,7 @@ FROM max_multiple;
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## Best-Selling Books
+## 13. Best-Selling Books
 
 You work at a book store. It's the end of the month, and you need to find out the top 5 bestselling books at your store. Use a select statement to list names, authors, and number of copies sold of the 5 books which were sold the most.
 
@@ -431,7 +431,7 @@ LIMIT 5;
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## On the Canadian Border
+## 14. On the Canadian Border
 
 You are a border guard sitting on the Canadian border. You were given a list of travelers who have arrived at your gate today. You know that American, Mexican, and Canadian citizens don't need visas, so they can just continue their trips. You don't need to check their passports for visas! You only need to check the passports of citizens of all other countries!
 
@@ -458,7 +458,7 @@ WHERE country NOT IN ('Canada', 'Mexico', 'USA');
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## Simple JOIN
+## 15. Simple JOIN
 
 For this challenge you need to return all columns from the `products` table, and join to the `companies` table so that you can retrieve the company name. Return all product fields as well as the company name as `company_name`.
 
@@ -486,7 +486,7 @@ ON products.company_id = companies.id;
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## Simple DISTINCT
+## 16. Simple DISTINCT
 
 For this challenge you need to find all the unique ages from the `people` table.
 
@@ -511,7 +511,7 @@ FROM people;
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## Simple SUM
+## 17. Simple SUM
 
 For this challenge you need to find the sum of all the ages from the `people` table. Return your result as `age_sum`.
 
@@ -536,7 +536,7 @@ FROM people;
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## Collect Tuition
+## 18. Collect Tuition
 
 You are working for a local school, and you are responsible for collecting tuition from students. You have a list of all students, some of them have already paid tuition, and some haven't. Write a select statement to get a list of all students who haven't paid their tuition yet. The list should include all the data available about these students.
 
@@ -564,7 +564,7 @@ WHERE tuition_received IS false;
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## Simple HAVING
+## 19. Simple HAVING
 
 For this challenge you need to count how many people have the same age and return the groups with 10 or more people who have that age. Return the `age` and your count as `total_people`.
 
@@ -591,7 +591,7 @@ HAVING count(id) >= 10;
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## Simple MIN / MAX
+## 20. Simple MIN / MAX
 
 For this challenge you need to return the minimum and maximum ages (`age_min` and `age_max`) out of all the people.
 
@@ -616,7 +616,7 @@ FROM people;
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## Simple JOIN with COUNT
+## 21. Simple JOIN with COUNT
 
 For this challenge you need to join the people table and the toys table and return all people fields as well as the count of toys for each person as `toy_count`.
 
@@ -643,7 +643,7 @@ GROUP BY people.id;
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## Register for the Party
+## 22. Register for the Party
 
 You received an invitation to an amazing party. Now you need to write an insert statement to add yourself to the table of participants.
 
@@ -668,7 +668,7 @@ VALUES ('John Doe', 35, true);
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## Ordering
+## 23. Ordering
 
 Your task is to sort the information in the table `companies` by the number of employees (high to low).
 
@@ -695,7 +695,7 @@ ORDER BY employees DESC;
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## Counting and Grouping
+## 24. Counting and Grouping
 
 Given a demographics table, your task is to return a table that shows a count of each race represented in descending order.
 
@@ -723,7 +723,7 @@ ORDER BY count DESC;
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## Alphabetical Addition
+## 25. Alphabetical Addition
 
 Given a table `letters`, with a string column `letter`, return the sum of the 
 letters in that column. Letters will always be lowercase. Letters can 
@@ -755,7 +755,7 @@ FROM letters;
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## Simple IN
+## 26. Simple IN
 
 For this challenge, use the `IN` operator to check whether a department has had a sale with a price over 98 dollars.
 
@@ -786,7 +786,7 @@ WHERE id IN
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## Simple EXISTS
+## 27. Simple EXISTS
 
 For this challenge, use the `EXISTS` operator to check whether a department has had a sale with a price over 98 dollars.
 
@@ -817,7 +817,7 @@ WHERE EXISTS
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## LowerCase
+## 28. LowerCase
 
 Given a demographics table, your task is to return the same table where all letters are lowercase in the `race` column.
 
@@ -835,6 +835,34 @@ race
 ```sql
 SELECT id, name, birthday, LOWER(race) AS race
 FROM demographics;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## 29. Concatenating Columns
+
+Given a names table, your task is to return a single column table containing the full title of the person (i.e. concatenate all columns together except the `id`). Don't forget to add spaces!
+
+```
+names        output
+-----        ------
+id           title
+prefix
+first
+last
+suffix
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT CONCAT_WS(' ', prefix, first, last, suffix)
+AS title
+FROM names;
 ```
 
 </details>
