@@ -870,3 +870,47 @@ FROM names;
 ---
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## 30. Simple UNION ALL
+
+There are two tables `ussales` and `eusales` where the parent company tracks each sale at its respective location. Your task is to filter the sale price so it only returns rows with a sale greater than `50.00`. You have been tasked with combining that data for future analysis. Order by `location` (US before EU), then by `id`.
+
+```
+(us/eu)sales
+------------
+id
+name
+price
+card_name
+card_number
+transaction_date
+
+output
+------
+location (EU for eusales and US for ussales)
+id
+name
+price (greater than 50.00)
+card_name
+card_number
+transaction_date
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT 'US' as location, *
+  FROM ussales
+  WHERE price > 50
+UNION ALL
+SELECT 'EU' as location, *
+  FROM eusales
+  WHERE price > 50
+ORDER BY location DESC, id;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
