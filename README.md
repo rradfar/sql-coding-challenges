@@ -914,3 +914,37 @@ ORDER BY location DESC, id;
 ---
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## 31. Growing Plant
+
+Each day a plant is growing by `up_speed` meters. Each night that plant's height declines by `down_speed` meters due to the lack of sun heat. Initially, the plant is `0` meters tall. We plant the seed at the beginning of a day. We want to know the number of days that it will take for the plant to reach or pass a desired height (including the last day in the total count). For example,
+- For `up_speed = 100`, `down_speed = 10` and `desired_height = 910`, the output should be `10` days.
+- For `up_speed = 10`, `down_speed = 9` and `desired_height = 4`, the output should be `1` day, because the plant already reaches the desired height on the first day.
+
+```
+growing_plant        output
+-------------        ------
+id                   id
+down_speed           num_days
+up_speed
+desired_height
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT
+  id,
+  CASE
+    WHEN up_speed >= desired_height THEN 1
+    ELSE CEIL((desired_height - up_speed)::decimal / (up_speed - down_speed))::int + 1 
+  END
+  AS num_days
+FROM growing_plant;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
