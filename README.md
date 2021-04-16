@@ -948,3 +948,48 @@ FROM growing_plant;
 ---
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## 32. Second Highest Salary
+
+Write a SQL query to get the second highest salary from the `Employee` table.
+
+```
++----+--------+
+| Id | Salary |
++----+--------+
+| 1  | 100    |
+| 2  | 200    |
+| 3  | 300    |
++----+--------+
+```
+
+For example, given the above Employee table, the query should return `200` as the second highest salary. If there is no second highest salary, then the query should return `null`.
+
+```
++---------------------+
+| SecondHighestSalary |
++---------------------+
+| 200                 |
++---------------------+
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT
+  IFNULL(
+    (
+      SELECT DISTINCT Salary
+      FROM Employee
+      ORDER BY Salary DESC
+      LIMIT 1 OFFSET 1
+    ),
+  NULL)
+AS SecondHighestSalary;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
