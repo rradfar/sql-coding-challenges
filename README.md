@@ -993,3 +993,30 @@ AS SecondHighestSalary;
 ---
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## 33. Combine Two Tables
+
+Write a SQL query for a report that provides the following information for each person in the `Person` table, regardless if there is an address for each of those people:
+
+```
+Person        Address         Your output
+------        -------         -----------
+PersonId      AddressId       FirstName
+FirstName     PersonId        LastName
+LastName      City            City
+              State           State
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT FirstName, LastName, City, State
+FROM Person LEFT JOIN Address
+ON Person.PersonId = Address.PersonId;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
