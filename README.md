@@ -1020,3 +1020,30 @@ ON Person.PersonId = Address.PersonId;
 ---
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## 34. Rounding Decimals
+
+Given the following table `decimals`, return a table with two columns (`number1`, `number2`), where the value in `number1` is rounded down and the value in `number2` is rounded up.
+
+```
+decimals
+--------
+id
+number1
+number2
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT
+  FLOOR(number1) AS number1,
+  CEILING(number2) AS number2
+FROM decimals;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
