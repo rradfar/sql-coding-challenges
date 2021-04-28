@@ -1091,3 +1091,28 @@ WHERE
 ---
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## 36. Invalid Tweets
+
+Given the table `Tweets`, write a SQL query to find the `tweet_id` of the invalid tweets. A tweet is invalid if the number of characters used in the content of the tweet is greater than 15.
+
+```
+Tweets
+------
+tweet_id
+content
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT tweet_id
+FROM Tweets
+WHERE LENGTH(content) > 15;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
