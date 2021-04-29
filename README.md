@@ -1116,3 +1116,55 @@ WHERE LENGTH(content) > 15;
 ---
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## 37. Daily Leads and Partners
+
+The `DailySales` table contains the date and the name of products sold and the IDs of the leads and partners they were sold to. Write a SQL query that for each `date_id` and `make_name`, returns the number of distinct `lead_id`'s and distinct `partner_id`'s. Here is an example:
+
+```
+DailySales table:
++-----------+-----------+---------+------------+
+| date_id   | make_name | lead_id | partner_id |
++-----------+-----------+---------+------------+
+| 2020-12-8 | toyota    | 0       | 1          |
+| 2020-12-8 | toyota    | 1       | 0          |
+| 2020-12-8 | toyota    | 1       | 2          |
+| 2020-12-7 | toyota    | 0       | 2          |
+| 2020-12-7 | toyota    | 0       | 1          |
+| 2020-12-8 | honda     | 1       | 2          |
+| 2020-12-8 | honda     | 2       | 1          |
+| 2020-12-7 | honda     | 0       | 1          |
+| 2020-12-7 | honda     | 1       | 2          |
+| 2020-12-7 | honda     | 2       | 1          |
++-----------+-----------+---------+------------+
+```
+
+```
+Result table:
++-----------+-----------+--------------+-----------------+
+| date_id   | make_name | unique_leads | unique_partners |
++-----------+-----------+--------------+-----------------+
+| 2020-12-8 | toyota    | 2            | 3               |
+| 2020-12-7 | toyota    | 1            | 2               |
+| 2020-12-8 | honda     | 2            | 2               |
+| 2020-12-7 | honda     | 3            | 2               |
++-----------+-----------+--------------+-----------------+
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT
+  date_id,
+  make_name,
+  COUNT(DISTINCT(lead_id)) AS unique_leads,
+  COUNT(DISTINCT(partner_id)) AS unique_partners
+FROM DailySales
+GROUP BY date_id, make_name;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
