@@ -1216,3 +1216,36 @@ Group BY
 ---
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## 39. SQL Basics - Position
+
+You have access to a table of `monsters`. In each row, the `characteristic` column has a single comma. Your task is to find its position. The `comma` column should contain the position of the comma within the characteristics string. Order the results by `comma`.
+
+```
+Monsters          output
+--------          ------
+id                id
+name              name
+legs              comma
+arms
+characteristics
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT
+  id,
+  name,
+  POSITION(',' IN characteristics) AS comma
+FROM
+  monsters
+ORDER BY
+  comma;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
