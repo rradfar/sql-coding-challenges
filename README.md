@@ -1249,3 +1249,63 @@ ORDER BY
 ---
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## 40. Students With Invalid Departments
+
+Write a SQL query to find the id and the name of all students who are enrolled in departments that no longer exists. Return the result table in any order. Here is an example:
+
+```
+Departments table:
++------+--------------------------+
+| id   | name                     |
++------+--------------------------+
+| 1    | Electrical Engineering   |
+| 7    | Computer Engineering     |
+| 13   | Business Administration  |
++------+--------------------------+
+
+Students table:
++------+----------+---------------+
+| id   | name     | department_id |
++------+----------+---------------+
+| 23   | Alice    | 1             |
+| 1    | Bob      | 7             |
+| 5    | Jennifer | 13            |
+| 2    | John     | 14            |
+| 4    | Jasmine  | 77            |
+| 3    | Steve    | 74            |
+| 6    | Luis     | 1             |
+| 8    | Jonathan | 7             |
+| 7    | Diana    | 33            |
+| 11   | Madelyn  | 1             |
++------+----------+---------------+
+```
+
+```
+Result table:
++------+----------+
+| id   | name     |
++------+----------+
+| 2    | John     |
+| 7    | Diana    |
+| 4    | Jasmine  |
+| 3    | Steve    |
++------+----------+
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT
+  id, name
+FROM
+  Students
+WHERE
+  department_id NOT IN (SELECT id FROM Departments);
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
