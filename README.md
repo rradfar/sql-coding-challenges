@@ -1309,3 +1309,43 @@ WHERE
 ---
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## 41. Convert Date Format
+
+Write a SQL query to convert each date in the `Days` table into a formatted string. Here is an example:
+
+```
+Days table:
++------------+
+| day        |
++------------+
+| 2022-04-12 |
+| 2021-08-09 |
+| 2020-06-26 |
++------------+
+```
+
+```
+Result table:
++-------------------------+
+| day                     |
++-------------------------+
+| Tuesday, April 12, 2022 |
+| Monday, August 9, 2021  |
+| Friday, June 26, 2020   |
++-------------------------+
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT DATE_FORMAT(day, '%W, %M %e, %Y')
+AS day
+FROM Days;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
