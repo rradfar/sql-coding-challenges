@@ -1349,3 +1349,56 @@ FROM Days;
 ---
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## 42. Replace Employee ID with the Unique Identifier
+
+Write a SQL query to show the unique ID of each employee if they have one or null. Return the result table in any order. Here is an example:
+
+```
+Employees table:
++----+----------+
+| id | name     |
++----+----------+
+| 1  | Alice    |
+| 7  | Bob      |
+| 11 | Meir     |
+| 90 | Winston  |
+| 3  | Jonathan |
++----+----------+
+
+EmployeeUNI table:
++----+-----------+
+| id | unique_id |
++----+-----------+
+| 3  | 1         |
+| 11 | 2         |
+| 90 | 3         |
++----+-----------+
+```
+
+```
+Result table:
++-----------+----------+
+| unique_id | name     |
++-----------+----------+
+| null      | Alice    |
+| null      | Bob      |
+| 2         | Meir     |
+| 3         | Winston  |
+| 1         | Jonathan |
++-----------+----------+
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT u.unique_id, e.name
+FROM EmployeeUNI u RIGHT JOIN Employees e
+ON u.id = e.id;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
