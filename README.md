@@ -833,7 +833,11 @@ race
 <details><summary>Solution</summary>
 
 ```sql
-SELECT id, name, birthday, LOWER(race) AS race
+SELECT
+  id, 
+  name, 
+  birthday, 
+  LOWER(race) AS race
 FROM demographics;
 ```
 
@@ -1011,7 +1015,8 @@ LastName      City            City
 
 ```sql
 SELECT FirstName, LastName, City, State
-FROM Person LEFT JOIN Address
+FROM Person
+LEFT JOIN Address
 ON Person.PersonId = Address.PersonId;
 ```
 
@@ -1076,14 +1081,11 @@ Given the Employee table, write a SQL query that finds out employees who earn mo
 <details><summary>Solution</summary>
 
 ```sql
-SELECT
-  a.Name AS Employee
-FROM
-  Employee a JOIN Employee b
-ON
-  a.managerId = b.Id
-WHERE
-  a.Salary > b.Salary;
+SELECT A.Name AS Employee
+FROM Employee A
+JOIN Employee B
+ON A.managerId = B.Id
+WHERE A.Salary > B.Salary;
 ```
 
 </details>
@@ -1205,10 +1207,8 @@ Select
   event_day AS day,
   emp_id,
   SUM(out_time - in_time) AS total_time
-FROM
-  Employees
-Group BY
-  emp_id, event_day;
+FROM Employees
+Group BY emp_id, event_day;
 ```
 
 </details>
@@ -1238,10 +1238,8 @@ SELECT
   id,
   name,
   POSITION(',' IN characteristics) AS comma
-FROM
-  monsters
-ORDER BY
-  comma;
+FROM monsters
+ORDER BY comma;
 ```
 
 </details>
@@ -1296,12 +1294,10 @@ Result table:
 <details><summary>Solution</summary>
 
 ```sql
-SELECT
-  id, name
-FROM
-  Students
-WHERE
-  department_id NOT IN (SELECT id FROM Departments);
+SELECT id, name
+FROM Students
+WHERE department_id NOT IN 
+  (SELECT id FROM Departments);
 ```
 
 </details>
@@ -1392,9 +1388,64 @@ Result table:
 <details><summary>Solution</summary>
 
 ```sql
-SELECT u.unique_id, e.name
-FROM EmployeeUNI u RIGHT JOIN Employees e
-ON u.id = e.id;
+SELECT U.unique_id, E.name
+FROM EmployeeUNI U
+RIGHT JOIN Employees E
+ON U.id = E.id;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## 43. Bank Account Summary II
+
+Write a SQL query to report the name and balance of users with a balance higher than 10,000. The balance of an account is equal to the sum of the amounts of all transactions involving that account. Return the result table in any order. Here is an example:
+
+```
+Users table:
++------------+--------------+
+| account    | name         |
++------------+--------------+
+| 900001     | Alice        |
+| 900002     | Bob          |
+| 900003     | Charlie      |
++------------+--------------+
+
+Transactions table:
++------------+------------+------------+---------------+
+| trans_id   | account    | amount     | transacted_on |
++------------+------------+------------+---------------+
+| 1          | 900001     | 7000       |  2020-08-01   |
+| 2          | 900001     | 7000       |  2020-09-01   |
+| 3          | 900001     | -3000      |  2020-09-02   |
+| 4          | 900002     | 1000       |  2020-09-12   |
+| 5          | 900003     | 6000       |  2020-08-07   |
+| 6          | 900003     | 6000       |  2020-09-07   |
+| 7          | 900003     | -4000      |  2020-09-11   |
++------------+------------+------------+---------------+
+```
+
+```
+Result table:
++------------+------------+
+| name       | balance    |
++------------+------------+
+| Alice      | 11000      |
++------------+------------+
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT U.name, SUM(T.amount) AS 'balance'
+FROM Users U
+JOIN Transactions T
+ON U.account = T.account
+GROUP BY U.name
+HAVING SUM(T.amount) >= 10000;
 ```
 
 </details>
