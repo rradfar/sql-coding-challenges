@@ -1506,3 +1506,54 @@ WHERE store3 IS NOT NULL
 ---
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## 45. Find the Team Size
+
+Write a SQL query to find the team size of each of the employees. Return result table in any order. Here is an example:
+
+```
+Employee Table:
++-------------+------------+
+| employee_id | team_id    |
++-------------+------------+
+|     1       |     8      |
+|     2       |     8      |
+|     3       |     8      |
+|     4       |     7      |
+|     5       |     9      |
+|     6       |     9      |
++-------------+------------+
+```
+
+```
+Result table:
++-------------+------------+
+| employee_id | team_size  |
++-------------+------------+
+|     1       |     3      |
+|     2       |     3      |
+|     3       |     3      |
+|     4       |     1      |
+|     5       |     2      |
+|     6       |     2      |
++-------------+------------+
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT employee.employee_id, team.team_size
+FROM employee
+LEFT JOIN (
+  SELECT team_id, COUNT(employee_id) AS team_size
+  FROM employee
+  GROUP BY team_id
+) team
+ON employee.team_id = team.team_id;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
