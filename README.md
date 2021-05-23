@@ -1557,3 +1557,37 @@ ON employee.team_id = team.team_id;
 ---
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## 46. Monsters using CASE
+
+You have access to two tables `top_half` and `bottom_half`. Write a SQL query to return the results as outlined below. The IDs on the tables match to make a full monster. For the `species`, if the monster has more heads than arms or more tails than legs, it is a `BEAST`, else it is a `WEIRDO`. Order your results by `species`.
+
+```
+top_half          bottom_half         output
+--------          -----------         ------
+id                id                  id
+heads             legs                heads
+arms              tails               legs
+                                      arms
+                                      tails
+                                      species
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT T.id, heads, legs, arms, tails,
+CASE
+  WHEN heads > arms OR tails > legs THEN 'BEAST'
+  ELSE 'WEIRDO'
+END AS species
+FROM top_half T JOIN bottom_half B
+ON T.id = B.id
+ORDER BY species;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
