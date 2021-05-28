@@ -1603,9 +1603,9 @@ Employees table:
 +-------------+---------+--------+
 | 2           | Meir    | 3000   |
 | 3           | Michael | 3800   |
-| 7           | Addilyn | 7400   |
+| 7           | John    | 7400   |
 | 8           | Juan    | 6100   |
-| 9           | Kannon  | 7700   |
+| 9           | Chris   | 7700   |
 +-------------+---------+--------+
 ```
 
@@ -1632,6 +1632,35 @@ CASE
 END AS bonus
 FROM Employees
 ORDER BY employee_id;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## 48. SQL Basics: Repeat and Reverse
+
+Given the `monsters` table, write a SQL query that returns an output such that the name is the original string repeated three times (do not add any spaces), and the characteristics are the original strings in reverse (e.g. 'abc, def, ghi' becomes 'ihg ,fed ,cba').
+
+```
+monsters          output
+--------          ------
+id                name
+name              characteristics
+legs
+arms
+characteristics
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT
+  REPEAT(name, 3) AS name, 
+  REVERSE(characteristics) AS characteristics
+FROM monsters;
 ```
 
 </details>
