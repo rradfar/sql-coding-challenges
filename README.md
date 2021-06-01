@@ -1725,3 +1725,65 @@ GROUP BY
 ---
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## 50. Customer Who Visited but did not Make any Purchases
+
+At a members-only store, customers have to scan their membership cards before they can enter. Given a `Visits` table that contains information about the customers who visited the store, and a `Transactions` table that contains information about the purchases they made during their visits, write a SQL query to find the IDs of those customers who visited the store but made no purchases and the number of times they visited during which they did not purchase anything. Return the result table sorted in any order. Here is an example:
+
+```
+Visits table:
++----------+-------------+
+| visit_id | customer_id |
++----------+-------------+
+| 1        | 23          |
+| 2        | 9           |
+| 4        | 30          |
+| 5        | 54          |
+| 6        | 96          |
+| 7        | 54          |
+| 8        | 54          |
++----------+-------------+
+
+Transactions table:
++----------------+----------+--------+
+| transaction_id | visit_id | amount |
++----------------+----------+--------+
+| 2              | 5        | 310    |
+| 3              | 5        | 300    |
+| 9              | 5        | 200    |
+| 12             | 1        | 910    |
+| 13             | 2        | 970    |
++----------------+----------+--------+
+```
+
+```
+Result table:
++-------------+----------------+
+| customer_id | count_no_trans |
++-------------+----------------+
+| 54          | 2              |
+| 30          | 1              |
+| 96          | 1              |
++-------------+----------------+
+```
+
+E.g. Customer with ID 54 made multiple purchases during `visit_id` 5, but no purchases during visits 7 and 8, so they had two visits where they did not make any purchases.
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT 
+  V.customer_id, COUNT(*) AS count_no_trans
+FROM
+  Visits V LEFT JOIN Transactions T ON V.visit_id = T.visit_id
+WHERE 
+  T.transaction_id IS NULL
+GROUP BY
+  V.customer_id;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
