@@ -1726,7 +1726,7 @@ GROUP BY
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
 
-## 50. Customer Who Visited but did not Make any Purchases
+## 50. Customers Who Visited but did not Make any Purchases
 
 At a members-only store, customers have to scan their membership cards before they can enter. Given a `Visits` table that contains information about the customers who visited the store, and a `Transactions` table that contains information about the purchases they made during their visits, write a SQL query to find the IDs of those customers who visited the store but made no purchases and the number of times they visited during which they did not purchase anything. Return the result table sorted in any order. Here is an example:
 
@@ -1780,6 +1780,49 @@ WHERE
   T.transaction_id IS NULL
 GROUP BY
   V.customer_id;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## 51. Customers with Positive Revenue
+
+Write a SQL query to report the customers with positive revenue in the year 2021. Return the result table sorted in any order. Here is an example:
+
+```
+Customers
++-------------+------+---------+
+| customer_id | year | revenue |
++-------------+------+---------+
+| 1           | 2018 | 50      |
+| 1           | 2021 | 30      |
+| 1           | 2020 | 70      |
+| 2           | 2021 | -50     |
+| 3           | 2018 | 10      |
+| 3           | 2016 | 50      |
+| 4           | 2021 | 20      |
++-------------+------+---------+
+```
+
+```
+Result table:
++-------------+
+| customer_id |
++-------------+
+| 1           |
+| 4           |
++-------------+
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT customer_id
+FROM Customers
+WHERE year=2021 AND revenue > 0;
 ```
 
 </details>
