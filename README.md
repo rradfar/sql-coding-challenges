@@ -1830,3 +1830,76 @@ WHERE year=2021 AND revenue > 0;
 ---
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## 52. All Valid Triplets
+
+Your district is joining a national competition for students, and wants to select one student from each one of its three schools such that:
+- `student_A` is selected from `School_A`,
+- `student_B` is selected from `School_B`,
+- `student_C` is selected from `School_C`,
+- and the selected students' names and IDs are unique such that no two students share the same name or ID.
+
+Write a SQL query to find all the possible triplets. Return the result table in any order. Here is an example:
+
+```
+School_A table:
++------------+--------------+
+| student_id | student_name |
++------------+--------------+
+| 1          | Alice        |
+| 2          | Bob          |
++------------+--------------+
+
+School_B table:
++------------+--------------+
+| student_id | student_name |
++------------+--------------+
+| 3          | Tom          |
++------------+--------------+
+
+School_C table:
++------------+--------------+
+| student_id | student_name |
++------------+--------------+
+| 3          | Tom          |
+| 2          | Jerry        |
+| 10         | Alice        |
++------------+--------------+
+```
+
+```
+Result table:
++-----------+-----------+-----------+
+| student_A | student_B | student_C |
++-----------+-----------+-----------+
+| Alice     | Tom       | Jerry     |
+| Bob       | Tom       | Alice     |
++-----------+-----------+-----------+
+```
+
+As you can see, out of all possible triplets, `(Alice, Tom, Tom), (Alice, Tom, Alice), (Bob, Tom, Tom), (Bob, Tom, Jerry), (Alice, Tom, Jerry), (Bob, Tom, Alice)`, only the last two are valid since they contain students with unique names as well as IDs.
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT
+  A.student_name AS 'student_A',
+  B.student_name AS 'student_B',
+  C.student_name AS 'student_C'
+FROM
+  School_A A CROSS JOIN School_B B CROSS JOIN School_C C
+WHERE
+  A.student_id != B.student_id AND
+  A.student_id != C.student_id AND
+  B.student_id != C.student_id
+  AND
+  A.student_name != B.student_name AND
+  A.student_name != C.student_name AND
+  B.student_name != C.student_name;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
