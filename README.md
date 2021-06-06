@@ -1903,3 +1903,50 @@ WHERE
 ---
 
 **[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
+
+## 53. Products' Price for Each Store
+
+Write a SQL query to find the price of each product in each store. Return the result table sorted in any order. Here is an example:
+
+```
+Products table:
++-------------+--------+-------+
+| product_id  | store  | price |
++-------------+--------+-------+
+| 0           | store1 | 95    |
+| 0           | store3 | 105   |
+| 0           | store2 | 100   |
+| 1           | store1 | 70    |
+| 1           | store3 | 80    |
++-------------+--------+-------+
+```
+
+```
+Result table:
++-------------+--------+--------+--------+
+| product_id  | store1 | store2 | store3 |
++-------------+--------+--------+--------+
+| 0           | 95     | 100    | 105    |
+| 1           | 70     | null   | 80     |
++-------------+--------+--------+--------+
+```
+
+<details><summary>Solution</summary>
+
+```sql
+SELECT
+  product_id,
+  SUM(CASE WHEN store = 'store1' THEN price ELSE null END) AS store1,
+  SUM(CASE WHEN store = 'store2' THEN price ELSE null END) AS store2,
+  SUM(CASE WHEN store = 'store3' THEN price ELSE null END) AS store3
+FROM
+  Products
+GROUP BY
+  product_id;
+```
+
+</details>
+
+---
+
+**[⬆ Back to Top](#sql-coding-challenges-for-beginners)**
